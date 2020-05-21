@@ -1,0 +1,10 @@
+FROM golang:1.14.3-alpine3.11
+
+LABEL maintainer="Sebastian Salata R-T <sa.salatart@gmail.com>"
+
+WORKDIR /go/src/github.com/sasalatart/api-demo/
+
+COPY main.go pong.go ./
+RUN GOOS=linux go build -o app .
+
+CMD ["./app"]
